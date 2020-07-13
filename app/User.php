@@ -46,5 +46,10 @@ public function phone()
 
 }
 
+public function posts()
+{
+    return $this->hasMany('App\Post');
+
+}
 
 }

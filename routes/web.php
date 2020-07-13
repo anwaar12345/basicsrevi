@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\User;
 use App\Phone;
+use App\Post;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,8 +15,15 @@ use App\Phone;
 |
 */
 
-Route::get('/', function () {
+Route::get('/one-one', function () {
     // return view('welcome');
     $phone = Phone::find(1);
     return $phone->user;
+});
+
+
+Route::get('one-many', function(){
+
+// return User::find(1)->posts;
+   return  Post::with('user')->get();
 });
