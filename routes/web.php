@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\User;
+use App\logging\CustomLogger;
 use App\Phone;
 use App\Post;
 use App\role;
@@ -32,5 +33,8 @@ Route::get('one-many', function(){
 
 Route::get('/many-many', function(){
     // return User::find(1)->roles;
+    // Log::channel('customlog')->info('Hello world!!');
+    $log = "Hello World";
+    CustomLogger::log($log);
     return role::find(1)->users;
 });
