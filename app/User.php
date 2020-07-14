@@ -52,4 +52,9 @@ public function posts()
 
 }
 
+public function roles()
+    {
+        return $this->belongsToMany('App\role');
+    }
+
 }

@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\User;
 use App\Phone;
 use App\Post;
+use App\role;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,4 +27,10 @@ Route::get('one-many', function(){
 
 // return User::find(1)->posts;
    return  Post::with('user')->get();
+});
+
+
+Route::get('/many-many', function(){
+    // return User::find(1)->roles;
+    return role::find(1)->users;
 });
